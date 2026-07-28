@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Contactos;
 
-use App\Filament\Resources\Contactos\Pages\CreateContacto;
+// use App\Filament\Resources\Contactos\Pages\CreateContacto;
 use App\Filament\Resources\Contactos\Pages\EditContacto;
 use App\Filament\Resources\Contactos\Pages\ListContactos;
 use App\Filament\Resources\Contactos\Schemas\ContactoForm;

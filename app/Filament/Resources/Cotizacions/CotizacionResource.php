@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Cotizacions;
 
-use App\Filament\Resources\Cotizacions\Pages\CreateCotizacion;
-use App\Filament\Resources\Cotizacions\Pages\EditCotizacion;
+// use App\Filament\Resources\Cotizacions\Pages\CreateCotizacion;
+// use App\Filament\Resources\Cotizacions\Pages\EditCotizacion;
 use App\Filament\Resources\Cotizacions\Pages\ListCotizacions;
 use App\Filament\Resources\Cotizacions\Schemas\CotizacionForm;
 use App\Filament\Resources\Cotizacions\Tables\CotizacionsTable;

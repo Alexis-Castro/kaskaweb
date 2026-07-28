@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
@@ -11,7 +11,7 @@ beforeEach(function () {
 });
 
 test('email verification screen can be rendered', function () {
-    $user = User::factory()->unverified()->create();
+    $user = Usuario::factory()->unverified()->create();
 
     $response = $this->actingAs($user)->get(route('verification.notice'));
 
@@ -19,7 +19,7 @@ test('email verification screen can be rendered', function () {
 });
 
 test('email can be verified', function () {
-    $user = User::factory()->unverified()->create();
+    $user = Usuario::factory()->unverified()->create();
 
     Event::fake();
 
@@ -34,11 +34,11 @@ test('email can be verified', function () {
     Event::assertDispatched(Verified::class);
 
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
-    $response->assertRedirect(route('dashboard', absolute: false).'?verified=1');
+    $response->assertRedirect(route('dashboard', absolute: false) . '?verified=1');
 });
 
 test('email is not verified with invalid hash', function () {
-    $user = User::factory()->unverified()->create();
+    $user = Usuario::factory()->unverified()->create();
 
     $verificationUrl = URL::temporarySignedRoute(
         'verification.verify',
@@ -52,7 +52,7 @@ test('email is not verified with invalid hash', function () {
 });
 
 test('already verified user visiting verification link is redirected without firing event again', function () {
-    $user = User::factory()->create([
+    $user = Usuario::factory()->create([
         'email_verified_at' => now(),
     ]);
 
@@ -65,7 +65,7 @@ test('already verified user visiting verification link is redirected without fir
     );
 
     $this->actingAs($user)->get($verificationUrl)
-        ->assertRedirect(route('dashboard', absolute: false).'?verified=1');
+        ->assertRedirect(route('dashboard', absolute: false) . '?verified=1');
 
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
     Event::assertNotDispatched(Verified::class);

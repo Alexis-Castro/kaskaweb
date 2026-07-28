@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Newsletters;
 
-use App\Filament\Resources\Newsletters\Pages\CreateNewsletter;
+// use App\Filament\Resources\Newsletters\Pages\CreateNewsletter;
 use App\Filament\Resources\Newsletters\Pages\EditNewsletter;
 use App\Filament\Resources\Newsletters\Pages\ListNewsletters;
 use App\Filament\Resources\Newsletters\Schemas\NewsletterForm;
